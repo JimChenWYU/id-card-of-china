@@ -2,7 +2,7 @@
 
 中华人民共和国身份证（The identity card of the people's Republic of China）
 
-[![Build Status](https://travis-ci.com/medz/id-card-of-china.svg?branch=master)](https://travis-ci.com/medz/id-card-of-china)
+[![Build Status](https://www.travis-ci.org/JimChenWYU/id-card-of-china.svg?branch=master)](https://travis-ci.com/JimChenWYU/id-card-of-china)
 
 >  JavaScript 版本：https://github.com/medz/id-card-of-china-js
 

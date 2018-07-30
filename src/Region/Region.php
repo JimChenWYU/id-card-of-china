@@ -26,15 +26,15 @@ class Region implements RegionInterface
      * @param int $regionCode The Instance Init Region Code.
      * @author Seven Du <shiweidu@outlook.com>
      */
-    public function __construct(int $regionCode)
+    public function __construct($regionCode)
     {
         if (empty(static::$regions)) {
             // Seting regions to [static::$regions],
             // Using `json_decode` function decode json RAW string.
             static::$regions = json_decode(
                 // Using `file_get_contents` function read
-                // `medz/gb-t-2600` package data provided.
-                file_get_contents(MEDZ_GBT2260_RAW_PATH), true
+                // `jimchen/gb-t-2600` package data provided.
+                file_get_contents(GBT2260_RAW_PATH), true
             );
         }
 
