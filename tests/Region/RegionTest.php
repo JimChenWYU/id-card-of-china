@@ -1,12 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare(ticks=1);
 
-namespace Medz\IdentityCard\China\Tests\Region;
+namespace JimChen\IdentityCard\China\Tests\Region;
 
-use Medz\IdentityCard\China\Tests\TestCase;
-use Medz\IdentityCard\China\Region\Region;
-use Medz\IdentityCard\China\Region\RegionInterface;
+use JimChen\IdentityCard\China\Tests\TestCase;
+use JimChen\IdentityCard\China\Region\Region;
+use JimChen\IdentityCard\China\Region\RegionInterface;
 
 class RegionTest extends TestCase
 {
@@ -28,11 +28,7 @@ class RegionTest extends TestCase
      */
     public function testConstructor()
     {
-        $regionMock = new class (110000) extends Region {
-            public function getConstructorSetCode() {
-                return $this->code;
-            }
-        };
+        $regionMock = new RegionChild(110000);
         
         $this->assertEquals('110000', $regionMock->getConstructorSetCode());
     }
@@ -122,5 +118,12 @@ class RegionTest extends TestCase
             ->setMethods(null)
             ->getMock();
         $this->assertEquals('北京市#朝阳区', $regionMock->treeString('#'));
+    }
+}
+
+class RegionChild extends Region
+{
+    public function getConstructorSetCode() {
+        return $this->code;
     }
 }

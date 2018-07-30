@@ -1,12 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare(ticks=1);
 
-namespace Medz\IdentityCard\China\Tests;
+namespace JimChen\IdentityCard\China\Tests;
 
-use Medz\IdentityCard\China\Identity;
-use Medz\IdentityCard\China\IdentityInterface;
-use Medz\IdentityCard\China\Region\RegionInterface;
+use JimChen\IdentityCard\China\Identity;
+use JimChen\IdentityCard\China\IdentityInterface;
+use JimChen\IdentityCard\China\Region\RegionInterface;
 
 class IdentityTest extends TestCase
 {
@@ -15,7 +15,9 @@ class IdentityTest extends TestCase
      */
     public function testInterface()
     {
-        $identityMock = $this->createMock(Identity::class);
+        $identityMock = $this->getMockBuilder(Identity::class)
+            ->setConstructorArgs(['1234567890'])
+            ->getMock();
 
         $this->assertTrue($identityMock instanceof IdentityInterface);
     }

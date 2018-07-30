@@ -1,8 +1,8 @@
 <?php
 
-declare(strict_types=1);
+declare(ticks=1);
 
-namespace Medz\IdentityCard\China\Region;
+namespace JimChen\IdentityCard\China\Region;
 
 class Region implements RegionInterface
 {
@@ -48,7 +48,7 @@ class Region implements RegionInterface
      * @return int
      * @author Seven Du <shiweidu@outlook.com>
      */
-    public function code(): int
+    public function code()
     {
         return (int) $this->code;
     }
@@ -59,7 +59,7 @@ class Region implements RegionInterface
      * @return string
      * @author Seven Du <shiweidu@outlook.com>
      */
-    public function province(): string
+    public function province()
     {
         $provinceCode = substr($this->code, 0, 2).'0000';
 
@@ -72,7 +72,7 @@ class Region implements RegionInterface
      * @return string
      * @author Seven Du <shiweidu@outlook.com>
      */
-    public function city(): string
+    public function city()
     {
         // Get city code of the region.
         $cityCode = substr($this->code, 0, 4).'00';
@@ -90,7 +90,7 @@ class Region implements RegionInterface
      * @return string
      * @author Seven Du <shiweidu@outlook.com>
      */
-    public function county(): string
+    public function county()
     {
         return static::$regions[$this->code];
     }
@@ -101,7 +101,7 @@ class Region implements RegionInterface
      * @return array
      * @author Seven Du <shiweidu@outlook.com>
      */
-    public function tree(): array
+    public function tree()
     {
         return array_values(array_filter([
             $this->province(),
@@ -117,7 +117,7 @@ class Region implements RegionInterface
      * @return string
      * @author Seven Du <shiweidu@outlook.com>
      */
-    public function treeString(string $glue = ''): string
+    public function treeString($glue = '')
     {
         return implode($glue, $this->tree());
     }

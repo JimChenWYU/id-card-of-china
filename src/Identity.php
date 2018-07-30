@@ -1,17 +1,16 @@
 <?php
 
-declare(strict_types=1);
+declare(ticks=1);
 
-namespace Medz\IdentityCard\China;
+namespace JimChen\IdentityCard\China;
 
-use Medz\IdentityCard\China\Region\Region;
-use Medz\IdentityCard\China\Region\RegionInterface;
+use JimChen\IdentityCard\China\Region\Region;
 
 class Identity implements IdentityInterface
 {
     protected $identityCardNumber;
 
-    public function __construct(string $identityCardNumber)
+    public function __construct($identityCardNumber)
     {
         $identityCardNumber = str_replace(' ', '', $identityCardNumber);
         $identityCardNumber = str_replace('-', '', $identityCardNumber);
@@ -25,7 +24,7 @@ class Identity implements IdentityInterface
      * @return bool
      * @author Seven Du <shiweidu@outlook.com>
      */
-    public function legal(): bool
+    public function legal()
     {
         $regionCode = (int) substr($this->identityCardNumber, 0, 6);
 
@@ -46,7 +45,7 @@ class Identity implements IdentityInterface
      * @return string
      * @author Seven Du <shiweidu@outlook.com>
      */
-    public function birthday(): string
+    public function birthday()
     {
         $year = substr($this->identityCardNumber, 6, 4);
         $month = substr($this->identityCardNumber, 10, 2);
@@ -61,7 +60,7 @@ class Identity implements IdentityInterface
      * @return string
      * @author Seven Du <shiweidu@outlook.com>
      */
-    public function gender(): string
+    public function gender()
     {
         return ((intval(substr($this->identityCardNumber, 16, 1)) % 2) === 0) ? '女' : '男';
     }
@@ -69,14 +68,14 @@ class Identity implements IdentityInterface
     /**
      * Get Region of The ID Card People.
      */
-    public function region(): RegionInterface
+    public function region()
     {
         $regionCode = (int) substr($this->identityCardNumber, 0, 6);
 
         return new Region($regionCode);
     }
 
-    public function validateCheckCode(): bool
+    public function validateCheckCode()
     {
         // Init
         $identityCardNumber = $this->identityCardNumber;

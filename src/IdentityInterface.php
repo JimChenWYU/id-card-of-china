@@ -1,10 +1,10 @@
 <?php
 
-declare(strict_types=1);
+declare(ticks=1);
 
-namespace Medz\IdentityCard\China;
+namespace JimChen\IdentityCard\China;
 
-use Medz\IdentityCard\China\Region\RegionInterface;
+use JimChen\IdentityCard\China\Region\RegionInterface;
 
 interface IdentityInterface
 {
@@ -14,12 +14,12 @@ interface IdentityInterface
      * @return bool
      * @author Seven Du <shiweidu@outlook.com>
      */
-    public function legal(): bool;
+    public function legal();
 
     /**
      * Get Region of The ID Card People.
      */
-    public function region(): RegionInterface;
+    public function region();
 
     /**
      * Get The ID Card People Birthday.
@@ -27,7 +27,7 @@ interface IdentityInterface
      * @return string
      * @author Seven Du <shiweidu@outlook.com>
      */
-    public function birthday(): string;
+    public function birthday();
 
     /**
      * Get the ID Card People Gender.
@@ -35,5 +35,5 @@ interface IdentityInterface
      * @return string
      * @author Seven Du <shiweidu@outlook.com>
      */
-    public function gender(): string;
+    public function gender();
 }
